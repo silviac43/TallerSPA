@@ -174,7 +174,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title" id="updateModalLabel">Editar lugar residencia</h1>
+        <h1 class="modal-title" id="lugarModalLabel">Editar lugar residencia</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -189,6 +189,31 @@
             (click)="updateLugar(extra1Form.value)">Actualizar</button>
             <button type="submit" class="btn btn-danger" [disabled]="!extra1Form.valid"
             (click)="deleteLugar(extra1Form.value)">Borrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="documentoModal" tabindex="-1" aria-labelledby="documentoModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="documentoModalLabel">Editar lugar residencia</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="extra2Form" (ngSubmit)="!extra2Form.invalid">
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="id">ID</label>
+            <input novalidate id="id" class="form-control" formControlName="id" placeholder="ID" />
+          </div>
+        </form>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" [disabled]="!extra1Form.valid"
+            (click)="updateDocumento(extra2Form.value)">Actualizar</button>
+            <button type="submit" class="btn btn-danger" [disabled]="!extra1Form.valid"
+            (click)="deleteDocumento(extra2Form.value)">Borrar</button>
         </div>
       </div>
     </div>

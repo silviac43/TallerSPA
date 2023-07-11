@@ -36,4 +36,12 @@ deleteLugar(personaid: string, lugarid: string): Observable<Persona> {
   return this.http.delete<Persona>(this.apiUrl+'/'+personaid + '/lugar_residencia/' + lugarid);
 }
 
+updateDocumento(personaid: string, documentoid: string): Observable<Persona> {
+  return this.http.post<Persona>(this.apiUrl+'/'+personaid + '/id_tipo_documento/' + documentoid,null);
+}
+
+deleteDocumento(personaid: string, documentoid: string): Observable<Persona> {
+  return this.http.delete<Persona>(this.apiUrl+'/'+personaid + '/id_tipo_documento/' + documentoid);
+}
+
 }

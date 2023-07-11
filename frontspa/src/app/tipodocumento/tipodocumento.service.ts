@@ -14,4 +14,16 @@ export class TipodocumentoService {
   getTipodocumentos(): Observable<Tipodocumento[]> {
     return this.http.get<Tipodocumento[]>(this.apiUrl);
   }
+
+  createTipodocumento(tipodocumento: Tipodocumento): Observable<Tipodocumento> {
+    return this.http.post<Tipodocumento>(this.apiUrl, tipodocumento);
+ }
+
+ deleteTipodocumento(id: string) {
+  return this.http.delete(this.apiUrl+'/'+id)
+}
+
+updateTipodocumento(id: string, tipodocumento: Tipodocumento): Observable<Tipodocumento> {
+  return this.http.put<Tipodocumento>(this.apiUrl+"/"+id, tipodocumento);
+}
 }

@@ -1,12 +1,16 @@
 <h1 class="display-2 p-3">Ciudades </h1>
 
   <div class="container-fluid">
+    <button type="button" data-bs-toggle="modal" data-bs-target="#ciudadModal"
+    (click)="formularioCrear()">Crear</button>
     <div class="col-6">
       <table class="table">
         <thead>
           <tr>
             <th class="h4">Nombre</th>
             <th class="h4">Descripcion</th>
+            <th class="h4">Editar ciudad</th>
+            <th class="h4">Borrar ciudad</th>
           </tr>
         </thead>       
         <tbody>
@@ -17,9 +21,69 @@
             <td>
               <dd>{{c.descripcion}}</dd>
             </td>
+            <td>
+              <dd> <button type="button" data-bs-toggle="modal" data-bs-target="#updateciudadModal"
+                (click)="formularioEditar(c)">Editar ciudad</button></dd>
+            </td>
+            <td>
+              <dd><button (click)="deleteCiudad(c)">Borrar ciudad</button></dd>
+            </td>
         </tr>
         </tbody>
       </table>
     </div>
   </div>
 
+  <div class="modal fade" id="ciudadModal" tabindex="-1" aria-labelledby="ciudadModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title" id="exampleModalLabel">Crear una nueva ciudad</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="ciudadForm" (ngSubmit)="!ciudadForm.invalid">
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="nombre">Nombre</label>
+              <input novalidate id="nombre" class="form-control" formControlName="nombre" placeholder="Nombre" />
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="descripcion">Descripcion</label>
+              <input novalidate id="descripcion" class="form-control" formControlName="descripcion"placeholder="Descripcion" />
+            </div>
+          </form>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" [disabled]="!ciudadForm.valid"
+              (click)="createCiudad(ciudadForm.value)">Crear</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="updateciudadModal" tabindex="-1" aria-labelledby="ciudadModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title" id="exampleModalLabel">Editar una ciudad</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="ciudadForm" (ngSubmit)="!ciudadForm.invalid">
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="nombre">Nombre</label>
+              <input novalidate id="nombre" class="form-control" formControlName="nombre" placeholder="Nombre" />
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="descripcion">Descripcion</label>
+              <input novalidate id="descripcion" class="form-control" formControlName="descripcion"placeholder="Descripcion" />
+            </div>
+          </form>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" [disabled]="!ciudadForm.valid"
+              (click)="updateCiudad(ciudadForm.value)">Actualizar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

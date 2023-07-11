@@ -1,12 +1,16 @@
 <h1 class="display-2 p-3">Tipos de documento </h1>
 
   <div class="container-fluid">
+    <button type="button" data-bs-toggle="modal" data-bs-target="#tipodocumentoModal"
+    (click)="formularioCrear()">Crear</button>
     <div class="col-6">
       <table class="table">
         <thead>
           <tr>
             <th class="h4">Nombre</th>
             <th class="h4">Descripcion</th>
+            <th class="h4">Editar tipo documento</th>
+            <th class="h4">Borrar tipo documento</th>
           </tr>
         </thead>       
         <tbody>
@@ -17,8 +21,69 @@
             <td>
               <dd>{{t.descripcion}}</dd>
             </td>
+            <td>
+              <dd> <button type="button" data-bs-toggle="modal" data-bs-target="#updatetipodocumentoModal"
+                (click)="formularioEditar(t)">Editar tipo documento</button></dd>
+            </td>
+            <td>
+              <dd><button (click)="deleteTipodocumento(t)">Borrar tipo documento</button></dd>
+            </td>
         </tr>
         </tbody>
       </table>
+    </div>
+  </div>
+
+  <div class="modal fade" id="tipodocumentoModal" tabindex="-1" aria-labelledby="tipodocumentoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title" id="exampleModalLabel">Crear un nuevo tipo documento</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="tipodocumentoForm" (ngSubmit)="!tipodocumentoForm.invalid">
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="nombre">Nombre</label>
+              <input novalidate id="nombre" class="form-control" formControlName="nombre" placeholder="Nombre" />
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="descripcion">Descripcion</label>
+              <input novalidate id="descripcion" class="form-control" formControlName="descripcion"placeholder="Descripcion" />
+            </div>
+          </form>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" [disabled]="!tipodocumentoForm.valid"
+              (click)="createTipodocumento(tipodocumentoForm.value)">Crear</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="updatetipodocumentoModal" tabindex="-1" aria-labelledby="tipodocumentoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title" id="exampleModalLabel">Editar un tipo documento</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="tipodocumentoForm" (ngSubmit)="!tipodocumentoForm.invalid">
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="nombre">Nombre</label>
+              <input novalidate id="nombre" class="form-control" formControlName="nombre" placeholder="Nombre" />
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="descripcion">Descripcion</label>
+              <input novalidate id="descripcion" class="form-control" formControlName="descripcion"placeholder="Descripcion" />
+            </div>
+          </form>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" [disabled]="!tipodocumentoForm.valid"
+              (click)="updateTipodocumento(tipodocumentoForm.value)">Actualizar</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>

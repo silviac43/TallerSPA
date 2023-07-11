@@ -14,4 +14,16 @@ export class CiudadService {
   getCiudades(): Observable<Ciudad[]> {
     return this.http.get<Ciudad[]>(this.apiUrl);
   }
+
+  createCiudad(ciudad: Ciudad): Observable<Ciudad> {
+    return this.http.post<Ciudad>(this.apiUrl, ciudad);
+ }
+
+ deleteCiudad(id: string) {
+  return this.http.delete(this.apiUrl+'/'+id)
+}
+
+updateCiudad(id: string, ciudad: Ciudad): Observable<Ciudad> {
+  return this.http.put<Ciudad>(this.apiUrl+"/"+id, ciudad);
+}
 }

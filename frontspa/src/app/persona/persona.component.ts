@@ -121,6 +121,20 @@ export class PersonaComponent implements OnInit {
     })
   }
 
+  updateDocumento(extra: Extra) {
+    this.personaService.updateDocumento(this.selectedPersona.id, extra.id).subscribe(persona =>{
+      this.selectedPersona = persona;
+      this.getPersonas();
+    })
+  }
+
+  deleteDocumento(extra: Extra) {
+    this.personaService.deleteDocumento(this.selectedPersona.id, extra.id).subscribe(persona =>{
+      this.selectedPersona = persona;
+      this.getPersonas();
+    })
+  }
+
 
 }
 
