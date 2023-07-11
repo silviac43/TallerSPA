@@ -35,9 +35,7 @@ export class TipodocumentoService {
         if (!persistedTipodocumento)
           throw new BusinessLogicException("No existe ningun tipodocumento con el ID dado", BusinessError.NOT_FOUND);
        
-        tipodocumento.id = id; 
-       
-        return await this.tipodocumentoRepository.save(tipodocumento);
+        return await this.tipodocumentoRepository.save({...persistedTipodocumento, ...tipodocumento,});
     }
  
     async delete(id: string) {

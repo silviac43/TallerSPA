@@ -102,26 +102,21 @@ export class PersonaComponent implements OnInit {
 
   updatePersona(persona: Persona) {
     this.personaService.updatePersona(this.selectedPersona.id, persona).subscribe(persona =>{
-      this.selectedPersona = persona;
       this.getPersonas();
     })
   }
 
   updateLugar(extra: Extra) {
     this.personaService.updateLugar(this.selectedPersona.id, extra.id).subscribe(persona =>{
-      this.selectedPersona = persona;
       this.getPersonas();
     })
   }
 
   deleteLugar(extra: Extra) {
     this.personaService.deleteLugar(this.selectedPersona.id, extra.id).subscribe(persona =>{
-      this.selectedPersona = persona;
       this.getPersonas();
     })
   }
-
-
 }
 
 export class Extra {

@@ -35,9 +35,7 @@ export class CiudadService {
         if (!persistedCiudad)
           throw new BusinessLogicException("No existe ninguna ciudad con el ID dado", BusinessError.NOT_FOUND);
        
-        ciudad.id = id; 
-       
-        return await this.ciudadRepository.save(ciudad);
+        return await this.ciudadRepository.save({...persistedCiudad, ...ciudad,});
     }
  
     async delete(id: string) {

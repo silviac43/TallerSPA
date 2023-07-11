@@ -35,9 +35,7 @@ export class PersonaService {
         if (!persistedPersona)
           throw new BusinessLogicException("No existe ninguna persona con el ID dado", BusinessError.NOT_FOUND);
        
-        persona.id = id; 
-       
-        return await this.personaRepository.save(persona);
+        return await this.personaRepository.save({...persistedPersona, ...persona,});
     }
  
     async delete(id: string) {
