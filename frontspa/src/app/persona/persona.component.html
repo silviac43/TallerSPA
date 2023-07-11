@@ -1,0 +1,196 @@
+<h1 class="display-2 p-3">Personas </h1>
+
+<div class="container-fluid">
+  <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+    (click)="formularioCrear()">Crear</button>
+  <div class="col-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="h4">Nombres</th>
+          <th class="h4">Apellidos</th>
+          <th class="h4"># Documento</th>
+          <th class="h4">Email</th>
+          <th class="h4">Telefono</th>
+          <th class="h4">Usuario</th>
+          <th class="h4">Lugar residencia</th>
+          <th class="h4">Tipo documento</th>
+          <th class="h4">Editar lugar residencia</th>
+          <th class="h4">Editar tipo documento</th>
+          <th class="h4">Editar persona</th>
+          <th class="h4">Borrar persona</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of personas">
+          <td>
+            <dd>{{p.nombres}}</dd>
+          </td>
+          <td>
+            <dd>{{p.apellidos}}</dd>
+          </td>
+          <td>
+            <dd>{{p.documento}}</dd>
+          </td>
+          <td>
+            <dd>{{p.email}}</dd>
+          </td>
+          <td>
+            <dd>{{p.telefono}}</dd>
+          </td>
+          <td>
+            <dd>{{p.usuario}}</dd>
+          </td>
+          <td>
+            <dd>{{p.lugar_residencia?.nombre}}</dd>
+          </td>
+          <td>
+            <dd>{{p.id_tipo_documento?.nombre}}</dd>
+          </td>
+          <td>
+            <dd> <button type="button" data-bs-toggle="modal" data-bs-target="#lugarModal"
+              (click)="formularioExtra1(p)">Editar lugar residencia</button></dd>
+          </td>
+          <td>
+            <dd> <button type="button" data-bs-toggle="modal" data-bs-target="#documentoModal"
+              (click)="formularioExtra2(p)">Editar tipo documento</button></dd>
+          </td>
+          <td>
+            <dd> <button type="button" data-bs-toggle="modal" data-bs-target="#updateModal"
+              (click)="formularioEditar(p)">Editar persona</button></dd>
+          </td>
+          <td>
+            <dd><button (click)="deletePersona(p)">Borrar persona</button></dd>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLabel">Crear una nueva persona</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="personaForm" (ngSubmit)="!personaForm.invalid">
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="nombres">Nombres</label>
+            <input novalidate id="nombres" class="form-control" formControlName="nombres" placeholder="Nombres" />
+          </div>
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="apellidos">Apellidos</label>
+            <input novalidate id="apellidos" class="form-control" formControlName="apellidos" placeholder="Apellidos" />
+          </div>
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="documento">Documento</label>
+            <input novalidate id="documento" class="form-control" formControlName="documento" placeholder="Documento" />
+          </div>
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="fecha_nacimiento">Fecha nacimiento</label>
+            <input novalidate id="fecha_nacimiento" class="form-control" formControlName="fecha_nacimiento" placeholder="YYYY-MM-DD" />
+          </div>
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="email">Email</label>
+            <input novalidate id="email" class="form-control" formControlName="email" placeholder="xxxx@correo.com" />
+          </div>
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="telefono">Telefono</label>
+            <input novalidate id="telefono" class="form-control" formControlName="telefono" placeholder="1234567890" />
+          </div>
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="usuario">Usuario</label>
+            <input novalidate id="usuario" class="form-control" formControlName="usuario" placeholder="Usuario" />
+          </div>
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="password">Password</label>
+            <input novalidate id="password" class="form-control" formControlName="password" placeholder="Contraseña" />
+          </div>
+        </form>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" [disabled]="!personaForm.valid"
+            (click)="createPersona(personaForm.value)">Crear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="updateModalLabel">Editar una persona</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="personaForm" (ngSubmit)="!personaForm.invalid">
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="nombres">Nombres</label>
+            <input novalidate id="nombres" class="form-control" formControlName="nombres" placeholder="Nombres" />
+          </div>
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="apellidos">Apellidos</label>
+            <input novalidate id="apellidos" class="form-control" formControlName="apellidos" placeholder="Apellidos" />
+          </div>
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="documento">Documento</label>
+            <input novalidate id="documento" class="form-control" formControlName="documento" placeholder="Documento" />
+          </div>
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="fecha_nacimiento">Fecha nacimiento</label>
+            <input novalidate id="fecha_nacimiento" class="form-control" formControlName="fecha_nacimiento" placeholder="YYYY-MM-DD" />
+          </div>
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="email">Email</label>
+            <input novalidate id="email" class="form-control" formControlName="email" placeholder="xxxx@correo.com" />
+          </div>
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="telefono">Telefono</label>
+            <input novalidate id="telefono" class="form-control" formControlName="telefono" placeholder="1234567890" />
+          </div>
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="usuario">Usuario</label>
+            <input novalidate id="usuario" class="form-control" formControlName="usuario" placeholder="Usuario" />
+          </div>
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="password">Password</label>
+            <input novalidate id="password" class="form-control" formControlName="password" placeholder="Contraseña" />
+          </div>
+        </form>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" [disabled]="!personaForm.valid"
+            (click)="updatePersona(personaForm.value)">Actualizar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="lugarModal" tabindex="-1" aria-labelledby="lugarModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="updateModalLabel">Editar lugar residencia</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="extra1Form" (ngSubmit)="!extra1Form.invalid">
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="id">ID</label>
+            <input novalidate id="id" class="form-control" formControlName="id" placeholder="ID" />
+          </div>
+        </form>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" [disabled]="!extra1Form.valid"
+            (click)="updateLugar(extra1Form.value)">Actualizar</button>
+            <button type="submit" class="btn btn-danger" [disabled]="!extra1Form.valid"
+            (click)="deleteLugar(extra1Form.value)">Borrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

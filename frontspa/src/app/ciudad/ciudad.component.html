@@ -1,0 +1,25 @@
+<h1 class="display-2 p-3">Ciudades </h1>
+
+  <div class="container-fluid">
+    <div class="col-6">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="h4">Nombre</th>
+            <th class="h4">Descripcion</th>
+          </tr>
+        </thead>       
+        <tbody>
+          <tr *ngFor="let c of ciudades">
+            <td>
+              <dd>{{c.nombre}}</dd>
+            </td>
+            <td>
+              <dd>{{c.descripcion}}</dd>
+            </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
