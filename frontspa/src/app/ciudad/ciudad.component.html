@@ -7,6 +7,7 @@
       <table class="table">
         <thead>
           <tr>
+            <th class="h4">ID</th>
             <th class="h4">Nombre</th>
             <th class="h4">Descripcion</th>
             <th class="h4">Editar ciudad</th>
@@ -15,6 +16,9 @@
         </thead>       
         <tbody>
           <tr *ngFor="let c of ciudades">
+            <td>
+              <dd>{{c.id}}</dd>
+            </td>
             <td>
               <dd>{{c.nombre}}</dd>
             </td>
