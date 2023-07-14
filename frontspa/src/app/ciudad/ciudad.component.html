@@ -1,7 +1,8 @@
-<h1 class="display-2 p-3">Ciudades </h1>
+<br>
+<h3 class="subelegant-title">Ciudades </h3>
 
   <div class="container-fluid">
-    <button type="button" data-bs-toggle="modal" data-bs-target="#ciudadModal"
+    <button id="boton1" class="btn btn-borde" type="button" data-bs-toggle="modal" data-bs-target="#ciudadModal"
     (click)="formularioCrear()">Crear</button>
     <div class="col-6">
       <table class="table">
@@ -26,11 +27,11 @@
               <dd>{{c.descripcion}}</dd>
             </td>
             <td>
-              <dd> <button type="button" data-bs-toggle="modal" data-bs-target="#updateciudadModal"
+              <dd> <button id="btn2" class="btn btn-bootstrap" type="button" data-bs-toggle="modal" data-bs-target="#updateciudadModal"
                 (click)="formularioEditar(c)">Editar ciudad</button></dd>
             </td>
             <td>
-              <dd><button (click)="deleteCiudad(c)">Borrar ciudad</button></dd>
+              <dd><button id="btn2" class="btn btn-bootstrap" (click)="deleteCiudad(c)">Borrar ciudad</button></dd>
             </td>
         </tr>
         </tbody>

@@ -1,7 +1,8 @@
-<h1 class="display-2 p-3">Tipos de documento </h1>
+<br>
+<h3 class="subelegant-title">Tipos de documento </h3>
 
   <div class="container-fluid">
-    <button type="button" data-bs-toggle="modal" data-bs-target="#tipodocumentoModal"
+    <button id="boton1" class="btn btn-borde" type="button" data-bs-toggle="modal" data-bs-target="#tipodocumentoModal"
     (click)="formularioCrear()">Crear</button>
     <div class="col-6">
       <table class="table">
@@ -26,11 +27,11 @@
               <dd>{{t.descripcion}}</dd>
             </td>
             <td>
-              <dd> <button type="button" data-bs-toggle="modal" data-bs-target="#updatetipodocumentoModal"
+              <dd> <button id="btn2" class="btn btn-bootstrap" type="button" data-bs-toggle="modal" data-bs-target="#updatetipodocumentoModal"
                 (click)="formularioEditar(t)">Editar tipo documento</button></dd>
             </td>
             <td>
-              <dd><button (click)="deleteTipodocumento(t)">Borrar tipo documento</button></dd>
+              <dd><button id="btn2" class="btn btn-bootstrap" (click)="deleteTipodocumento(t)">Borrar tipo documento</button></dd>
             </td>
         </tr>
         </tbody>

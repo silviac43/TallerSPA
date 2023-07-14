@@ -1,7 +1,9 @@
-<h1 class="display-2 p-3">Personas </h1>
+
+<br>
+<h3 class="subelegant-title">Personas </h3>
 
 <div class="container-fluid">
-  <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+  <button id="boton1" class="btn btn-borde" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
     (click)="formularioCrear()">Crear</button>
   <div class="col-6">
     <table class="table">
@@ -48,19 +50,19 @@
             <dd>{{p.id_tipo_documento?.nombre}}</dd>
           </td>
           <td>
-            <dd> <button type="button" data-bs-toggle="modal" data-bs-target="#lugarModal"
+            <dd> <button id="btn2" class="btn btn-bootstrap" type="button" data-bs-toggle="modal" data-bs-target="#lugarModal"
               (click)="formularioExtra1(p)">Editar lugar residencia</button></dd>
           </td>
           <td>
-            <dd> <button type="button" data-bs-toggle="modal" data-bs-target="#documentoModal"
+            <dd> <button id="btn2" class="btn btn-bootstrap" type="button" data-bs-toggle="modal" data-bs-target="#documentoModal"
               (click)="formularioExtra2(p)">Editar tipo documento</button></dd>
           </td>
           <td>
-            <dd> <button type="button" data-bs-toggle="modal" data-bs-target="#updateModal"
+            <dd> <button id="btn2" class="btn btn-bootstrap" type="button" data-bs-toggle="modal" data-bs-target="#updateModal"
               (click)="formularioEditar(p)">Editar persona</button></dd>
           </td>
           <td>
-            <dd><button (click)="deletePersona(p)">Borrar persona</button></dd>
+            <dd><button id="btn2" class="btn btn-bootstrap" (click)="deletePersona(p)">Borrar persona</button></dd>
           </td>
         </tr>
       </tbody>

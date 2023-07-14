@@ -2,14 +2,77 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Menu</title>
+  <title>Taller SPA</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </head>
+<style>
+  .elegant-title {
+      font-family: Arial, sans-serif;
+      font-size: 32px;
+      color: #333;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 10px;
+      background-color: #f2f2f2;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .subelegant-title {
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      color: #FFFFFF;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 10px;
+      background-color: #007bff;
+      border: 2px solid #FFFFFF;
+      border-radius: 5px;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-borde {
+      padding: .375rem .75rem;
+      border: 2px solid #007bff;
+      border-radius: .25rem;
+      color: #007bff;
+      transition: color .15s ease-in-out,
+      background-color .15s ease-in-out;
+    }
+    
+    .btn-borde:hover, .btn-borde:active, .btn-borde:focus {
+      color: #fff;
+      background-color: #007bff;
+    }
+
+    .btn-bootstrap {
+      padding: .375rem .75rem;
+      border-radius: .25rem;
+      background-color: #51D1F6;
+      color: #fff;
+      transition: background-color .15s ease-in-out;
+    }
+    
+    .btn-bootstrap:hover, .btn-bootstrap:focus {
+      background-color: #0069d9;
+    }
+    
+    .btn-bootstrap:active {
+      background-color: #0062cc;
+    }
+    
+</style> 
+
 <body>
+  <h1 class="elegant-title">BASE DE DATOS SPA</h1>
+
   <app-root></app-root>
 </body>
 </html>
